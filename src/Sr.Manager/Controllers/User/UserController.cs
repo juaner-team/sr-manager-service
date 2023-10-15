@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Sr.Manager.Core.AOP.Attributes;
+﻿using Sr.Manager.Core.AOP.Attributes;
 using Sr.Manager.Core.Domains.Common;
 using Sr.Manager.Core.Domains.Common.Consts;
 using Sr.Manager.Core.Domains.Entities.Core;
@@ -7,6 +6,7 @@ using Sr.Manager.Core.Domains.Entities.User;
 using Sr.Manager.Service.Core.User;
 using Sr.Manager.Service.Core.User.Input;
 using Sr.Manager.Service.Core.User.Output;
+using MapsterMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
