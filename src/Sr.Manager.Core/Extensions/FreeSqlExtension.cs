@@ -10,6 +10,7 @@ using System.Data;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
+using Sr.Manager.Core.Common.Configs;
 
 namespace Sr.Manager.Core.Extensions
 {
@@ -79,20 +80,14 @@ namespace Sr.Manager.Core.Extensions
 
         public static FreeSqlBuilder UseConnectionString(this FreeSqlBuilder builder, IConfiguration configuration)
         {
-            IConfigurationSection dbTypeCode = configuration.GetSection("ConnectionStrings:DefaultDB");
-            if (Enum.TryParse(dbTypeCode.Value, out DataType dataType))
+            var conStr = Appsettings.MySqlCon;
+            if (!string.IsNullOrWhiteSpace(conStr))
             {
-                if (!Enum.IsDefined(typeof(DataType), dataType))
-                {
-                    Log.Error($"数据库配置ConnectionStrings:DefaultDB:{dataType}无效");
-                }
-
-                IConfigurationSection configurationSection = configuration.GetSection($"ConnectionStrings:{dataType}");
-                builder.UseConnectionString(dataType, configurationSection.Value);
+                builder.UseConnectionString(DataType.MySql, conStr);
             }
             else
             {
-                Log.Error($"数据库配置ConnectionStrings:DefaultDB:{dbTypeCode.Value}无效");
+                Log.Error($"数据库配置ConnectionStrings:MySql无效");
             }
 
             return builder;

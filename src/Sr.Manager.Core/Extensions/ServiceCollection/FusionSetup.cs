@@ -84,7 +84,8 @@ namespace Sr.Manager.Core.Extensions.ServiceCollection
             //从IpRateLimiting.json获取相应配置
             services.Configure<IpRateLimitOptions>(Appsettings.IpRateLimitingConfig);
             services.Configure<IpRateLimitPolicies>(Appsettings.IpRateLimitPoliciesConfig);
-            services.AddDistributedRateLimiting();
+            services.AddInMemoryRateLimiting();
+
             //配置（计数器密钥生成器）
             services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
@@ -107,6 +108,7 @@ namespace Sr.Manager.Core.Extensions.ServiceCollection
                          }
                      };
                  }).UseRedisLock().WithSystemTextJson());
+
             return services;
         }
         /// <summary>

@@ -135,19 +135,31 @@ namespace Sr.Manager.Core.Common.Configs
         #region Db
 
         /// <summary>
-        /// 获取配置默认Db Code
-        /// </summary>
-        public static string DbTypeCode => _configuration["ConnectionStrings:DefaultDB"];
-
-        /// <summary>
         /// 获取配置 MySql ConnectionString
         /// </summary>
         public static string MySqlCon => _configuration["ConnectionStrings:MySql"];
 
+        #endregion
+
+        #region MinPro
+
         /// <summary>
-        /// 获取配置默认Db ConnectionString 
+        /// MinPro
         /// </summary>
-        public static string DbConnectionString(string dbTypeCode) => _configuration[$"ConnectionStrings:{dbTypeCode}"];
+        public class MinPro
+        {
+            /// <summary>
+            /// AppID
+            /// </summary>
+            public static string AppID => _configuration["MinPro:AppID"];
+
+            /// <summary>
+            /// AppSecret
+            /// </summary>
+            public static string AppSecret => _configuration["MinPro:AppSecret"];
+
+        }
+
         #endregion
 
         #region Cache
@@ -177,36 +189,6 @@ namespace Sr.Manager.Core.Common.Configs
         public static bool IpRateLimitEnable => Convert.ToBoolean(_configuration["Middleware:IpRateLimit:Enabled"]);
         public static IConfigurationSection IpRateLimitingConfig => _configuration.GetSection("IpRateLimiting");
         public static IConfigurationSection IpRateLimitPoliciesConfig => _configuration.GetSection("IpRateLimitPolicies");
-
-        #endregion
-
-        #region CAP
-
-        /// <summary>
-        /// Cap默认存储表前缀
-        /// </summary>
-        public static string CapStorageTablePrefix => _configuration["CAP:TableNamePrefix"];
-
-        /// <summary>
-        /// Cap默认存储
-        /// </summary>
-        public static string CapDefaultStorage => _configuration["CAP:DefaultStorage"];
-
-        /// <summary>
-        /// Cap默认队列
-        /// </summary>
-        public static string CapDefaultMessageQueue => _configuration["CAP:DefaultMessageQueue"];
-
-        /// <summary>
-        /// Cap RabbitMq 连接信息
-        /// </summary>
-        public class CapRabbitMq
-        {
-            public static string HostName => _configuration["CAP:RabbitMQ:HostName"];
-            public static string UserName => _configuration["CAP:RabbitMQ:UserName"];
-            public static string Password => _configuration["CAP:RabbitMQ:Password"];
-            public static string VirtualHost => _configuration["CAP:RabbitMQ:VirtualHost"];
-        }
 
         #endregion
 

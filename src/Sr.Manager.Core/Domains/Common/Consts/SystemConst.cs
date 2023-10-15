@@ -7,7 +7,7 @@ namespace Sr.Manager.Core.Domains.Common.Consts
         /// <summary>
         /// 数据库表前缀
         /// </summary>
-        public const string DbTablePrefix = "core_me";
+        public const string DbTablePrefix = "sr_manager";
         public static class Grouping
         {
             /// <summary>
