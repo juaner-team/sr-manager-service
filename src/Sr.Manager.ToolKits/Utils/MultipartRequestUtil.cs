@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace Sr.Manager.ToolKits.Utils
+namespace Sr.Manager.ToolKits.Utils;
+
+public class MultipartRequestUtil
 {
-    public class MultipartRequestUtil
+    public static bool IsMultipartContentType(string contentType)
     {
-        public static bool IsMultipartContentType(string contentType)
-        {
-            return !string.IsNullOrEmpty(contentType)
-                   && contentType.IndexOf("multipart/", StringComparison.OrdinalIgnoreCase) >= 0;
-        }
+        return !string.IsNullOrEmpty(contentType)
+               && contentType.IndexOf("multipart/", StringComparison.OrdinalIgnoreCase) >= 0;
     }
 }

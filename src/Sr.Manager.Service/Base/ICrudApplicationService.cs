@@ -2,20 +2,19 @@
 using Sr.Manager.Core.Domains.Common.Base;
 using System.Threading.Tasks;
 
-namespace Sr.Manager.Service.Base
+namespace Sr.Manager.Service.Base;
+
+public interface ICrudApplicationService<TGetOutputDto, TGetListOutputDto, in TKey, in TGetListInput, in TCreateInput, in TUpdateInput>
+    where TGetOutputDto : IEntityDto<TKey>
+    where TGetListOutputDto : IEntityDto<TKey>
 {
-    public interface ICrudApplicationService<TGetOutputDto, TGetListOutputDto, in TKey, in TGetListInput, in TCreateInput, in TUpdateInput>
-        where TGetOutputDto : IEntityDto<TKey>
-        where TGetListOutputDto : IEntityDto<TKey>
-    {
-        Task<PagedDto<TGetListOutputDto>> GetListAsync(TGetListInput input);
+    Task<PagedDto<TGetListOutputDto>> GetListAsync(TGetListInput input);
 
-        Task<TGetOutputDto> GetAsync(TKey id);
+    Task<TGetOutputDto> GetAsync(TKey id);
 
-        Task<TGetOutputDto> CreateAsync(TCreateInput createInput);
+    Task<TGetOutputDto> CreateAsync(TCreateInput createInput);
 
-        Task<TGetOutputDto> UpdateAsync(TKey id, TUpdateInput updateInput);
+    Task<TGetOutputDto> UpdateAsync(TKey id, TUpdateInput updateInput);
 
-        Task DeleteAsync(TKey id);
-    }
+    Task DeleteAsync(TKey id);
 }

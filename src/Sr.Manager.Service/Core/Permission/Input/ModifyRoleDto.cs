@@ -1,6 +1,5 @@
-﻿namespace Sr.Manager.Service.Core.Permission.Input
+﻿namespace Sr.Manager.Service.Core.Permission.Input;
+
+public class ModifyRoleDto
 {
-    public class ModifyRoleDto
-    {
-    }
 }

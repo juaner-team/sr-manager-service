@@ -4,13 +4,12 @@ using Sr.Manager.Core.Security;
 using Sr.Manager.Infrastructure.Repository.Base;
 using FreeSql;
 
-namespace Sr.Manager.Infrastructure.Repository.Core
-{
-    public class UserRoleRepo : AuditBaseRepo<UserRoleEntity>, IUserRoleRepo
-    {
-        public UserRoleRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
-        {
+namespace Sr.Manager.Infrastructure.Repository.Core;
 
-        }
+public class UserRoleRepo : AuditBaseRepo<UserRoleEntity>, IUserRoleRepo
+{
+    public UserRoleRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
+    {
+
     }
 }

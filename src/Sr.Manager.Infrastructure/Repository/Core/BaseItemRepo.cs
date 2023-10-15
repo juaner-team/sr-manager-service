@@ -4,12 +4,11 @@ using Sr.Manager.Core.Security;
 using Sr.Manager.Infrastructure.Repository.Base;
 using FreeSql;
 
-namespace Sr.Manager.Infrastructure.Repository.Core
+namespace Sr.Manager.Infrastructure.Repository.Core;
+
+public class BaseItemRepo : AuditBaseRepo<BaseItemEntity>, IBaseItemRepo
 {
-    public class BaseItemRepo : AuditBaseRepo<BaseItemEntity>, IBaseItemRepo
+    public BaseItemRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
     {
-        public BaseItemRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
-        {
-        }
     }
 }

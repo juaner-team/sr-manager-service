@@ -4,12 +4,11 @@ using Sr.Manager.Core.Security;
 using Sr.Manager.Infrastructure.Repository.Base;
 using FreeSql;
 
-namespace Sr.Manager.Infrastructure.Repository.Core
+namespace Sr.Manager.Infrastructure.Repository.Core;
+
+class UserIdentityRepo : AuditBaseRepo<UserIdentityEntity>, IUserIdentityRepo
 {
-    class UserIdentityRepo : AuditBaseRepo<UserIdentityEntity>, IUserIdentityRepo
+    public UserIdentityRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
     {
-        public UserIdentityRepo(UnitOfWorkManager unitOfWorkManager, ICurrentUser currentUser) : base(unitOfWorkManager, currentUser)
-        {
-        }
     }
 }

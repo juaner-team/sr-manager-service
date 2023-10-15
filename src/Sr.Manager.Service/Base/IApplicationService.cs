@@ -1,6 +1,5 @@
-﻿namespace Sr.Manager.Service.Base
+﻿namespace Sr.Manager.Service.Base;
+
+public interface IApplicationService
 {
-    public interface IApplicationService
-    {
-    }
 }
